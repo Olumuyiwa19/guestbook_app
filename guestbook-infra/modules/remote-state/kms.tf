@@ -11,6 +11,6 @@ resource "aws_kms_key" "terraform-bucket-key" {
 }
 
 resource "aws_kms_alias" "key-alias" {
-  name          = "alias/tf-state-bucket-key"
+  name          = var.key_alias
   target_key_id = aws_kms_key.terraform-bucket-key.key_id
 }

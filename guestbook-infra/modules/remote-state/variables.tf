@@ -7,3 +7,8 @@ variable "environment" {
   description = "Environment tag (dev, stage, prod)"
   type        = string
 }
+
+variable "key_alias" {
+  description = "Alias for the KMS key used to encrypt the S3 bucket"
+  type        = string
+}
