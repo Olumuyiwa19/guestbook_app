@@ -3,6 +3,11 @@ resource "aws_kms_key" "terraform-bucket-key" {
   deletion_window_in_days = 7
   enable_key_rotation     = true
   key_usage               = "ENCRYPT_DECRYPT"
+
+  tags = {
+    Name        = var.bucket_name
+    Environment = var.environment
+  }
 }
 
 resource "aws_kms_alias" "key-alias" {
