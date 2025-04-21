@@ -18,3 +18,8 @@ variable "region" {
   description = "AWS region to deploy the resources"
   type        = string
 }
+
+variable "shared_profile" {
+  description = "AWS shared profile name"
+  type        = string
+}

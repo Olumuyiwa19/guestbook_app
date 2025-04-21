@@ -1,12 +1,10 @@
-
-
 variable "bucket_name" {
-  description = "S3 bucket name for Terraform state"
+  description = "Name of the S3 bucket for terraform state"
   type        = string
 }
 
 variable "environment" {
-  description = "Environment tag (dev, stage, prod)"
+  description = "Environment name"
   type        = string
 }
 
@@ -18,5 +16,11 @@ variable "key_alias" {
 variable "region" {
   description = "AWS region to deploy state backend"
   type        = string
-  default     = "us-west-1"
+  default     = "us-west-2"
+}
+
+
+variable "shared_profile" {
+  description = "AWS shared profile name"
+  type        = string
 }
