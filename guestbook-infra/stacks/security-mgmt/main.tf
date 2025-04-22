@@ -1,6 +1,6 @@
 
 
-module "sg" {
+module "db_sg" {
   source            = "../../modules/security-mgmt"
   app_name          = var.app_name
   environment       = var.environment
