@@ -38,3 +38,8 @@ variable "rds_egress_rules" {
     cidr_blocks = list(string)
   }))
 }
+variable "vpc_id" {
+  description = "ID of the VPC to use"
+  type        = string
+  default     = "null"
+}

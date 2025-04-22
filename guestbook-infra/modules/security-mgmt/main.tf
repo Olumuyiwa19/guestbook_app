@@ -1,6 +1,7 @@
 resource "aws_security_group" "rds" {
   name        = "${var.app_name}-rds-sg"
   description = "RDS Security Group"
+  vpc_id      = var.vpc_id
 
   dynamic "ingress" {
     for_each = var.rds_ingress_rules
