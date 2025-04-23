@@ -12,7 +12,6 @@ module "iam" {
   instance_profile      = var.instance_profile
   db_security_group_id  = var.db_security_group_id
   user_data_script      = file("${path.module}/template/user-data.sh")
-  subnet_id             = var.subnet_id
+  subnet_ids            = var.subnet_ids
   ec2_security_group_id = var.ec2_security_group_id
-
 }

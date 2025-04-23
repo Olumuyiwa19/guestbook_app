@@ -17,16 +17,18 @@ data "aws_ami" "web_instance" {
 
 
 resource "aws_instance" "web_instance" {
+  for_each = toset(var.subnet_ids)
+
   ami                         = data.aws_ami.web_instance.id
   instance_type               = var.instance_type
   iam_instance_profile        = var.instance_profile
   user_data                   = var.user_data_script
-  subnet_id                   = var.subnet_id
+  subnet_id                   = each.value
   vpc_security_group_ids      = [var.ec2_security_group_id]
   associate_public_ip_address = true
 
   tags = {
-    Name        = "${var.app_name}-${var.environment}-web"
+    Name        = "${var.app_name}-${var.environment}-web-${each.key}"
     Environment = var.environment
   }
 }

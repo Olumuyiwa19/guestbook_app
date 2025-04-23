@@ -17,10 +17,11 @@ resource "aws_db_instance" "db_instance" {
   db_subnet_group_name                = aws_db_subnet_group.rds.name
   vpc_security_group_ids              = [var.security_group_id]
   kms_key_id                          = aws_kms_key.rds_encryption_key.arn
-  iam_database_authentication_enabled = true
   apply_immediately                   = true
   backup_retention_period             = 7
+  iam_database_authentication_enabled = true
+  multi_az                            = true
+  publicly_accessible                 = false
   skip_final_snapshot                 = true
   storage_encrypted                   = true
-  publicly_accessible                 = false
 }

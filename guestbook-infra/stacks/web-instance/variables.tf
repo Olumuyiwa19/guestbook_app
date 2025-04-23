@@ -41,7 +41,7 @@ variable "ec2_security_group_id" {
   type        = string
 }
 
-variable "subnet_id" {
-  description = "ID of the subnet to launch the instance in"
-  type        = string
+variable "subnet_ids" {
+  type        = list(string)
+  description = "List of subnet IDs in different Availability Zones"
 }

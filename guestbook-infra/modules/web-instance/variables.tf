@@ -47,7 +47,7 @@ variable "user_data_script" {
   default     = ""
 }
 
-variable "subnet_id" {
-  description = "ID of the subnet to launch the instance in"
-  type        = string
+variable "subnet_ids" {
+  type        = list(string)
+  description = "List of subnet IDs in different Availability Zones"
 }
