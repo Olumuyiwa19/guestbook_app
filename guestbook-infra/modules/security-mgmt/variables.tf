@@ -39,7 +39,46 @@ variable "rds_egress_rules" {
   }))
 }
 
+variable "web_ingress_rules" {
+  description = "List of ingress rules for WEB SG"
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+  }))
+}
+
+variable "web_egress_rules" {
+  description = "List of egress rules for WEB SG"
+  type = list(object({
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+}
+
+
 variable "vpc_id" {
   description = "ID of the VPC"
+  type        = string
+}
+
+variable "rds_security_groups" {
+  description = "List of security group IDs to allow access from the web instance"
+  type        = list(string)
+  default     = []
+}
+
+variable "ec2_security_groups" {
+  description = "List of security group IDs to allow access to the RDS instance"
+  type        = list(string)
+  default     = []
+}
+
+variable "my_ip" {
+  description = "Your IP address for testing"
   type        = string
 }

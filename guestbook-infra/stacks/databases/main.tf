@@ -1,5 +1,5 @@
 data "aws_secretsmanager_secret" "db_password" {
-  name = "/${var.app_name}-${var.environment}/db-creds"
+  name = "/${var.app_name}-${var.environment}/db-credentials"
 }
 
 data "aws_secretsmanager_secret_version" "db_password" {
