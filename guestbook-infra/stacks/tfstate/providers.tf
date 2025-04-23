@@ -9,5 +9,5 @@ terraform {
 
 provider "aws" {
   region  = var.region
-  profile = "Muyi-Admin"
+  profile = var.shared_profile
 }
