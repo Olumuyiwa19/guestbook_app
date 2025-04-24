@@ -131,23 +131,7 @@ guestbook-infra/
 
 ## Usage
 
-1. Initialize the Terraform working directory:
-
-```bash
-terraform init -backend-config=envs/dev-backend.tfvars
-```
-
-2. Review the planned changes:
-
-```bash
-terraform plan -var-file=envs/dev.tfvars
-```
-
-3. Apply the infrastructure changes:
-
-```bash
-terraform apply -var-file=envs/dev.tfvars
-```
+See details about the usage in the README.md file on each Stack
 
 ## Security Considerations
 
