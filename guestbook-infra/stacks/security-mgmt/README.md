@@ -7,11 +7,6 @@ This stack manages AWS security resources and configurations for the Guestbook a
 The security management stack handles the creation and configuration of:
 
 - Security Groups
-- Network ACLs
-- AWS WAF configurations
-- GuardDuty setup
-- Security Hub integration
-- CloudWatch security alarms
 
 ## Prerequisites
 
@@ -76,12 +71,3 @@ terraform apply -var-file=envs/dev.tfvars
   - Web servers
   - Database instances
   - Management access
-
-## Security Considerations
-
-- Defense in depth approach implemented
-- Regular security assessments enabled
-- Automated threat detection and response
-- Compliance standards enforcement
-- Security logs centralization
-- Real-time alerting configured
