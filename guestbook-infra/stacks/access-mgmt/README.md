@@ -15,7 +15,7 @@ The access management stack handles the creation and configuration of:
 
 - AWS credentials configured with appropriate IAM permissions
 - Terraform v1.0.0 or later
-- Remote state backend configured (S3 + DynamoDB)
+- Remote state backend configured (S3)
 - Base networking stack deployed
 
 ## Resource Dependencies
@@ -69,16 +69,11 @@ terraform apply -var-file=envs/dev.tfvars
 ## Resources Created
 
 - IAM role for EC2 instances with:
-  - SSM access for instance management
-  - S3 access for application artifacts
   - RDS access for database connectivity
-  - CloudWatch access for logging
-
-- Instance profiles for attaching roles to EC2 instances
+  - Instance profiles for attaching roles to EC2 instances
 
 - IAM policies defining:
   - Least privilege access controls
-  - Resource access boundaries
   - Service-specific permissions
 
 ## Outputs
@@ -93,5 +88,4 @@ terraform apply -var-file=envs/dev.tfvars
 - All roles follow least privilege principle
 - Policies are scoped to specific resources where possible
 - No hardcoded credentials
-- Regular rotation of access keys
 - Resource tagging enforced
