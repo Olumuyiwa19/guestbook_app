@@ -131,42 +131,20 @@ guestbook-infra/
 
 ## Usage
 
-1. Initialize the Terraform working directory:
-
-```bash
-terraform init -backend-config=envs/dev-backend.tfvars
-```
-
-2. Review the planned changes:
-
-```bash
-terraform plan -var-file=envs/dev.tfvars
-```
-
-3. Apply the infrastructure changes:
-
-```bash
-terraform apply -var-file=envs/dev.tfvars
-```
-
-## Variables
-
-| Name | Description | Type | Default |
-|------|-------------|------|---------|
-| app_name | Application name | string | "guestbook" |
-| environment | Deployment environment | string | "dev" |
-| region | AWS region | string | "us-west-2" |
+See details about the usage in the README.md file on each Stack
 
 ## Security Considerations
 
 - All resources are deployed within a VPC
-- Database instances are in private subnets
 - Security groups implement least privilege access
-- Regular security patches via maintenance windows
+- Nat Gateway provisioned for private subnet resources to make outbound connection
+- Database instances are in private subnets
+- Data stored in database are encrypted by KMS key
+- Database credentials stored and retrieved on runtime from secret manager
 
 ## Future Work
 
-- Use terraform fmt to maintain consistent formatting
-- Regular updates of provider and module versions
-- Backup and disaster recovery procedures
-- Monitoring and logging considerations
+- Move Web instance to private subnet
+- Create Load Balancer Module and Provision Load Balancer in public subnet and add web instance in the target group, configure listerner rule
+- Add WAF to Load Balancer for web access firewall
+- Implement monitoring and logging
